@@ -1,3 +1,4 @@
+import sys
 from time import time
 import src.lib.irc as irc_
 import src.lib.functions_general as general
@@ -6,6 +7,8 @@ import src.lib.functions_commands as commands
 
 class Main:
 	def __init__(self, config):
+		config['username'] = 'saltybetter_' + sys.argv[0]
+		config['oauth_password'] = 'oauth:' + sys.argv[1]
 		self.config = config
 		self.irc = irc_.irc(config)
 		self.socket = self.irc.get_irc_socket_object
